@@ -9,7 +9,6 @@
   *{margin:0;padding:0;box-sizing:border-box}
   body{font-family:'Cairo';background:#050505;color:#fff;overflow-x:hidden}
   
-  /* خلفية احمر ناري متحركة */
   body::before{
     content:'';position:fixed;top:0;left:0;width:100%;height:100%;
     background:radial-gradient(circle at 50% 50%, #ff0000 0%, #8b0000 50%, #000 100%);
@@ -18,8 +17,6 @@
   @keyframes pulse{0%,100%{opacity:0.8}50%{opacity:1}}
   
   canvas{position:fixed;top:0;left:0;z-index:-2}
-
-  /* كروت زجاج احمر */
   .glass{
     background:rgba(255,0,0,0.08);backdrop-filter:blur(25px);
     border:1px solid rgba(255,0,0,0.4);border-radius:30px;
@@ -46,7 +43,6 @@
   .nav-btn{background:rgba(255,0,0,0.2);color:#fff;padding:18px 35px;border-radius:50px;text-decoration:none;font-weight:800;border:2px solid #ff4d6d;cursor:pointer;transition:0.4s;font-size:18px}
   .nav-btn:hover{background:#ff0000;transform:translateY(-5px) scale(1.05);box-shadow:0 10px 30px red}
 
-  /* فراشات 3D متعددة */
   .butterfly{position:fixed;width:90px;height:90px;cursor:pointer;z-index:999;animation:fly 8s infinite linear;filter:drop-shadow(0 0 25px red)}
   @keyframes fly{
     0%{transform:translate(0,0) rotate(0)}25%{transform:translate(200px,-100px) rotate(90deg)}
@@ -66,7 +62,6 @@
 <body>
 <canvas id="bg"></canvas>
 
-<!-- صفحة الدخول -->
 <div id="login" class="glass">
   <h2>🔒 ممنوع الدخول لغير سوسو</h2>
   <p style="opacity:0.8;margin-bottom:15px;font-size:18px">اكتبي كلمة السر عشان تشوفي قد ايه بحبك</p>
@@ -75,12 +70,11 @@
   <p id="error" style="color:#ff0;display:none;margin-top:20px">لا مش ده 😢 جربي تاني</p>
 </div>
 
-<!-- صفحة 1: الاعتذار -->
 <div id="p1" class="page">
   <audio id="audio" controls autoplay loop>
     <source src="1_5172712419205581585.mp3" type="audio/mpeg">
   </audio>
-  <p style="text-align:center;opacity:0.7">مكانك في قلبي - عمرو دياب</p>
+  <p style="text-align:center;opacity:0.7">اغنيتك المفضلة شغالة دلوقتي 🎵</p>
   
   <h1>ياللي زعلان مني ومخصمني 😔</h1>
   <div class="card glass">
@@ -97,7 +91,6 @@
   </div>
 </div>
 
-<!-- صفحة 2: الوعود -->
 <div id="p2" class="page">
   <h1>اوعدك قدام الدنيا كلها ❤️</h1>
   <div class="card glass"><p class="love-text">اسف عمري ما هزعلك تاني</p></div>
@@ -109,7 +102,6 @@
   </div>
 </div>
 
-<!-- صفحة 3: النداء -->
 <div id="p3" class="page">
   <h1>تعالي يا قلب بابا 😭</h1>
   <div class="card glass"><p class="love-text">يلا كلمي بابا عشان وحشتيني</p></div>
@@ -120,7 +112,6 @@
   </div>
 </div>
 
-<!-- 3 فراشات -->
 <div class="butterfly" style="bottom:50px;right:50px;animation-delay:0s" onclick="showMsg('بحبك يا قلب بابا ❤️')"><div class="wing l"></div><div class="wing r"></div></div>
 <div class="butterfly" style="bottom:150px;right:200px;animation-delay:2s" onclick="showMsg('بموت فيكي يا سوسو ❤️')"><div class="wing l"></div><div class="wing r"></div></div>
 <div class="butterfly" style="bottom:250px;right:350px;animation-delay:4s" onclick="showMsg('انتِ كل دنيتي ❤️')"><div class="wing l"></div><div class="wing r"></div></div>
@@ -144,7 +135,6 @@ function showMsg(txt){
   setTimeout(()=>{m.style.display='none'},3500);
 }
 
-// قلوب 3D + جزيئات
 const c=document.getElementById('bg'),x=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;let H=[];
 for(let i=0;i<120;i++)H.push({x:Math.random()*c.width,y:Math.random()*c.height,s:Math.random()*25+10,v:Math.random()*2+1,a:Math.random()});
 function drawHeart(ctx,x,y,s,alp){
