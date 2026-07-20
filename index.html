@@ -3,117 +3,128 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>لـ سوسو قلب بابا ❤️</title>
+<title>سوسو - ملكة قلبي 👑❤️</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Reem+Kufi:wght@700&display=swap');
   *{margin:0;padding:0;box-sizing:border-box}
-  body{font-family:'Cairo';background:#0a0a0a;color:#fff;overflow-x:hidden}
+  body{font-family:'Cairo';background:#050505;color:#fff;overflow-x:hidden}
   
-  /* خلفية جريديان متحركة */
+  /* خلفية احمر ناري متحركة */
   body::before{
     content:'';position:fixed;top:0;left:0;width:100%;height:100%;
-    background:linear-gradient(45deg,#ff0000,#ff4d6d,#8b0000,#ff0000);
-    background-size:400% 400%;animation:gradient 15s ease infinite;z-index:-2;opacity:0.7;
+    background:radial-gradient(circle at 50% 50%, #ff0000 0%, #8b0000 50%, #000 100%);
+    animation:pulse 4s ease-in-out infinite;z-index:-3;
   }
-  @keyframes gradient{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
+  @keyframes pulse{0%,100%{opacity:0.8}50%{opacity:1}}
+  
+  canvas{position:fixed;top:0;left:0;z-index:-2}
 
-  /* قلوب 3D */
-  canvas{position:fixed;top:0;left:0;z-index:-1}
-
-  /* كارت زجاجي */
+  /* كروت زجاج احمر */
   .glass{
-    background:rgba(0,0,0,0.4);backdrop-filter:blur(20px);
-    border:1px solid rgba(255,0,0,0.3);border-radius:25px;
-    box-shadow:0 0 50px rgba(255,0,0,0.2);
+    background:rgba(255,0,0,0.08);backdrop-filter:blur(25px);
+    border:1px solid rgba(255,0,0,0.4);border-radius:30px;
+    box-shadow:0 0 60px rgba(255,0,0,0.3), inset 0 0 20px rgba(255,0,0,0.1);
   }
 
-  /* شاشة الدخول */
-  #login{max-width:450px;margin:15vh auto;padding:50px 40px;text-align:center;animation:fadeIn 1s}
-  @keyframes fadeIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-  #login h2{font-size:28px;margin-bottom:20px;color:#ff4d6d}
-  input{width:100%;padding:18px;border-radius:15px;border:2px solid #ff4d6d;background:rgba(0,0,0,0.5);color:#fff;font-size:18px;text-align:center;margin:15px 0}
-  .btn-rgb{background:linear-gradient(90deg,#ff0000,#ff4d6d,#ff0000);background-size:200% 100%;animation:rgb 3s linear infinite;color:#fff;padding:18px 40px;border:none;border-radius:15px;font-size:20px;font-weight:900;cursor:pointer;transition:0.3s}
-  .btn-rgb:hover{transform:scale(1.05);box-shadow:0 0 30px #ff4d6d}
-  @keyframes rgb{0%{background-position:0%}100%{background-position:200%}}
+  #login{max-width:480px;margin:12vh auto;padding:60px 45px;text-align:center;animation:drop 1.2s}
+  @keyframes drop{from{opacity:0;transform:translateY(-50px)}to{opacity:1;transform:translateY(0)}}
+  #login h2{font-family:'Reem Kufi';font-size:32px;color:#ff4d6d;margin-bottom:25px;text-shadow:0 0 20px red}
+  input{width:100%;padding:20px;border-radius:18px;border:2px solid #ff4d6d;background:rgba(0,0,0,0.6);color:#fff;font-size:20px;text-align:center;margin:20px 0}
+  .btn-rgb{background:linear-gradient(90deg,#ff0000,#ff4d6d,#ff8000,#ff0000);background-size:300% 100%;animation:rgb 2.5s linear infinite;color:#fff;padding:20px 45px;border:none;border-radius:18px;font-size:22px;font-weight:900;cursor:pointer;transition:0.4s}
+  .btn-rgb:hover{transform:scale(1.08) rotate(-1deg);box-shadow:0 0 50px #ff0000}
+  @keyframes rgb{0%{background-position:0%}100%{background-position:300%}}
 
-  /* الصفحات */
-  .page{display:none;padding:40px 20px;min-height:100vh;animation:fadeIn 0.8s}
-  h1{font-size:48px;color:#ff4d6d;text-align:center;margin:20px 0;text-shadow:0 0 30px #ff0000}
-  .card{max-width:600px;margin:25px auto;padding:35px;font-size:22px;line-height:2}
-  .nav{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin:30px 0}
-  .nav-btn{background:rgba(255,0,0,0.3);color:#fff;padding:16px 30px;border-radius:50px;text-decoration:none;font-weight:700;border:2px solid #ff4d6d;cursor:pointer;transition:0.3s}
-  .nav-btn:hover{background:#ff4d6d;transform:translateY(-3px)}
+  .page{display:none;padding:50px 20px;min-height:100vh;animation:fade 1s}
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+  h1{font-family:'Reem Kufi';font-size:52px;color:#ff4d6d;text-align:center;margin:25px 0;text-shadow:0 0 40px red;animation:glow 2s infinite}
+  @keyframes glow{0%,100%{text-shadow:0 0 20px red}50%{text-shadow:0 0 60px #ff4d6d}}
+  
+  .card{max-width:650px;margin:30px auto;padding:40px;font-size:24px;line-height:2.2;text-align:center}
+  .love-text{color:#ff4d6d;font-weight:900;font-size:28px;margin:15px 0}
+  
+  .nav{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin:40px 0}
+  .nav-btn{background:rgba(255,0,0,0.2);color:#fff;padding:18px 35px;border-radius:50px;text-decoration:none;font-weight:800;border:2px solid #ff4d6d;cursor:pointer;transition:0.4s;font-size:18px}
+  .nav-btn:hover{background:#ff0000;transform:translateY(-5px) scale(1.05);box-shadow:0 10px 30px red}
 
-  /* الفراشة 3D */
-  #butterfly{position:fixed;bottom:30px;right:30px;width:100px;height:100px;cursor:pointer;z-index:999;animation:float 3s ease-in-out infinite;filter:drop-shadow(0 0 20px red)}
-  @keyframes float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-30px) rotate(5deg)}}
-  .wing{position:absolute;width:50px;height:70px;background:linear-gradient(135deg,#ff4d6d,#ff0000);border-radius:90% 10% 90% 10%}
-  .wing.l{left:0;transform-origin:right bottom;animation:flap 0.5s infinite alternate}
-  .wing.r{right:0;transform-origin:left bottom;animation:flap 0.5s infinite alternate-reverse}
-  @keyframes flap{to{transform:rotateY(80deg)}}
-  #butterfly-msg{position:fixed;bottom:140px;right:20px;background:#fff;color:#ff0000;padding:18px 30px;border-radius:25px;font-weight:900;font-size:18px;display:none;box-shadow:0 0 40px red;animation:pop 0.4s}
-  @keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
+  /* فراشات 3D متعددة */
+  .butterfly{position:fixed;width:90px;height:90px;cursor:pointer;z-index:999;animation:fly 8s infinite linear;filter:drop-shadow(0 0 25px red)}
+  @keyframes fly{
+    0%{transform:translate(0,0) rotate(0)}25%{transform:translate(200px,-100px) rotate(90deg)}
+    50%{transform:translate(400px,0) rotate(180deg)}75%{transform:translate(200px,100px) rotate(270deg)}
+    100%{transform:translate(0,0) rotate(360deg)}
+  }
+  .wing{position:absolute;width:45px;height:65px;background:linear-gradient(135deg,#ff4d6d,#ff0000);border-radius:100% 0% 100% 0%;box-shadow:inset 0 0 20px rgba(255,255,255,0.3)}
+  .wing.l{left:0;animation:flap 0.4s infinite alternate}
+  .wing.r{right:0;animation:flap 0.4s infinite alternate-reverse}
+  @keyframes flap{to{transform:rotateY(90deg)}}
+  #butterfly-msg{position:fixed;bottom:130px;right:20px;background:linear-gradient(135deg,#fff,#ffebee);color:#ff0000;padding:20px 35px;border-radius:30px;font-weight:900;font-size:20px;display:none;box-shadow:0 0 50px red;animation:pop 0.5s;border:3px solid red}
+  @keyframes pop{0%{transform:scale(0) rotate(-20deg)}100%{transform:scale(1) rotate(0)}}
 
-  audio{width:100%;max-width:500px;margin:25px auto;display:block;border-radius:15px}
+  audio{width:100%;max-width:550px;margin:30px auto;display:block;border-radius:20px;box-shadow:0 0 30px red}
 </style>
 </head>
 <body>
 <canvas id="bg"></canvas>
 
-<!-- صفحة 1: الدخول -->
+<!-- صفحة الدخول -->
 <div id="login" class="glass">
-  <h2>🔒 ده ليكي انتي بس يا قلب بابا</h2>
-  <p style="opacity:0.8;margin-bottom:10px">اكتبي الباسورد عشان تشوفي المفاجأة</p>
+  <h2>🔒 ممنوع الدخول لغير سوسو</h2>
+  <p style="opacity:0.8;margin-bottom:15px;font-size:18px">اكتبي كلمة السر عشان تشوفي قد ايه بحبك</p>
   <input type="password" id="password" placeholder="بحبك يا سوسو">
-  <button class="btn-rgb" onclick="login()">ادخلي ❤️</button>
-  <p id="error" style="color:#ff0;display:none;margin-top:15px">غلط يا سوسو 😢</p>
+  <button class="btn-rgb" onclick="login()">افتحي قلبي ❤️</button>
+  <p id="error" style="color:#ff0;display:none;margin-top:20px">لا مش ده 😢 جربي تاني</p>
 </div>
 
-<!-- صفحة 2: الاعتذار -->
+<!-- صفحة 1: الاعتذار -->
 <div id="p1" class="page">
-  <!-- غيرت اسم الملف هنا للاسم اللي عندك -->
   <audio id="audio" controls autoplay loop>
     <source src="1_5172712419205581585.mp3" type="audio/mpeg">
   </audio>
-  <p style="text-align:center;opacity:0.7">لو مشتغلتش دوسي Play</p>
+  <p style="text-align:center;opacity:0.7">مكانك في قلبي - عمرو دياب</p>
   
   <h1>ياللي زعلان مني ومخصمني 😔</h1>
-  <div class="card glass">حبيب انا اسف والله<br>حقك عليا وراسي<br>مكانك في قلبي ومش هتغير</div>
+  <div class="card glass">
+    <p class="love-text">بحبك يا سوسو</p>
+    <p>انا اسف وحقك عليا</p>
+    <p class="love-text">بموت فيكي</p>
+    <p>انتِ الهوا اللي بتنفسه</p>
+    <p class="love-text">من غيرك انا ولا حاجة</p>
+  </div>
   <div class="nav">
-    <button class="nav-btn" onclick="show('p2')">اسف عمري ما هزعلك</button>
-    <button class="nav-btn" onclick="show('p3')">وحشتيني يا قلب بابا</button>
-    <a href="https://wa.me/201146173357?text=خلاص%20يا%20قلب%20بابا%20مسامحاك%20❤️" class="nav-btn" target="_blank">واتساب</a>
+    <button class="nav-btn" onclick="show('p2')">وعد مني</button>
+    <button class="nav-btn" onclick="show('p3')">تعالي في حضني</button>
+    <a href="https://wa.me/201146173357?text=خلاص%20يا%20قلب%20بابا%20مسامحاك%20بحبك%20❤️" class="nav-btn" target="_blank">واتساب</a>
   </div>
 </div>
 
-<!-- صفحة 3: الوعود -->
+<!-- صفحة 2: الوعود -->
 <div id="p2" class="page">
-  <h1>اوعدك يا سوسو ❤️</h1>
-  <div class="card glass">اسف عمري ما هزعلك تاني</div>
-  <div class="card glass">مليش غيرك</div>
-  <div class="card glass">انتِ امانتي ومسؤوليتي</div>
+  <h1>اوعدك قدام الدنيا كلها ❤️</h1>
+  <div class="card glass"><p class="love-text">اسف عمري ما هزعلك تاني</p></div>
+  <div class="card glass"><p class="love-text">مليش غيرك</p><p>انتِ اختياري كل يوم</p></div>
+  <div class="card glass"><p class="love-text">بحبك اكتر من امبارح</p><p>واقل من بكرة</p></div>
   <div class="nav">
-    <button class="nav-btn" onclick="show('p1')">الصفحة الرئيسية</button>
-    <button class="nav-btn" onclick="show('p3')">كلميني</button>
-  </div>
-</div>
-
-<!-- صفحة 4: النداء -->
-<div id="p3" class="page">
-  <h1>وحشتيني اوي 😭</h1>
-  <div class="card glass">يلا كلمي بابا عشان وحشتيني</div>
-  <div class="card glass">صوتك هو اللي هيصالحني</div>
-  <div class="nav">
-    <a href="https://wa.me/201146173357?text=ايوة%20يا%20بابا%20انا%20جيالك%20❤️" class="btn-rgb" target="_blank">كلميني دلوقتي</a>
     <button class="nav-btn" onclick="show('p1')">ارجعي</button>
+    <button class="nav-btn" onclick="show('p3')">وحشتيني</button>
   </div>
 </div>
 
-<!-- الفراشة -->
-<div id="butterfly" onclick="showMsg()">
-  <div class="wing l"></div><div class="wing r"></div>
+<!-- صفحة 3: النداء -->
+<div id="p3" class="page">
+  <h1>تعالي يا قلب بابا 😭</h1>
+  <div class="card glass"><p class="love-text">يلا كلمي بابا عشان وحشتيني</p></div>
+  <div class="card glass"><p>صوتك هو اللي بيطمني</p><p class="love-text">بموت فيكي</p></div>
+  <div class="nav">
+    <a href="https://wa.me/201146173357?text=ايوة%20يا%20حبي%20انا%20جيالك%20بحبك%20❤️" class="btn-rgb" target="_blank">كلميني دلوقتي</a>
+    <button class="nav-btn" onclick="show('p1')">الصفحة الرئيسية</button>
+  </div>
 </div>
-<div id="butterfly-msg">بحبك يا قلب بابا ❤️</div>
+
+<!-- 3 فراشات -->
+<div class="butterfly" style="bottom:50px;right:50px;animation-delay:0s" onclick="showMsg('بحبك يا قلب بابا ❤️')"><div class="wing l"></div><div class="wing r"></div></div>
+<div class="butterfly" style="bottom:150px;right:200px;animation-delay:2s" onclick="showMsg('بموت فيكي يا سوسو ❤️')"><div class="wing l"></div><div class="wing r"></div></div>
+<div class="butterfly" style="bottom:250px;right:350px;animation-delay:4s" onclick="showMsg('انتِ كل دنيتي ❤️')"><div class="wing l"></div><div class="wing r"></div></div>
+<div id="butterfly-msg"></div>
 
 <script>
 function login(){
@@ -126,16 +137,28 @@ function login(){
 function show(id){
   document.querySelectorAll('.page').forEach(p=>p.style.display='none');
   document.getElementById(id).style.display='block';
+  window.scrollTo(0,0);
 }
-function showMsg(){
-  let m=document.getElementById('butterfly-msg');m.style.display='block';
-  setTimeout(()=>{m.style.display='none'},3000);
+function showMsg(txt){
+  let m=document.getElementById('butterfly-msg');m.innerText=txt;m.style.display='block';
+  setTimeout(()=>{m.style.display='none'},3500);
 }
 
-// قلوب 3D
+// قلوب 3D + جزيئات
 const c=document.getElementById('bg'),x=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;let H=[];
-for(let i=0;i<100;i++)H.push({x:Math.random()*c.width,y:Math.random()*c.height,s:Math.random()*20+10,v:Math.random()*2+1});
-function draw(x,y,s){x.fillStyle='rgba(255,0,0,0.4)';x.beginPath();x.arc(x-s/3,y-s/3,s/3,0,7);x.arc(x+s/3,y-s/3,s/3,0,7);x.fill();x.beginPath();x.moveTo(x-s,y);x.lineTo(x,y+s);x.lineTo(x+s,y);x.fill();}
-function loop(){x.clearRect(0,0,c.width,c.height);H.forEach(h=>{h.y-=h.v;if(h.y<-20)h.y=c.height+20;draw(x,h.x,h.y,h.s)});requestAnimationFrame(loop)}loop();
+for(let i=0;i<120;i++)H.push({x:Math.random()*c.width,y:Math.random()*c.height,s:Math.random()*25+10,v:Math.random()*2+1,a:Math.random()});
+function drawHeart(ctx,x,y,s,alp){
+  ctx.fillStyle=`rgba(255,0,0,${alp})`;
+  ctx.beginPath();ctx.arc(x-s/3,y-s/3,s/3,0,Math.PI*2);
+  ctx.arc(x+s/3,y-s/3,s/3,0,Math.PI*2);ctx.fill();
+  ctx.beginPath();ctx.moveTo(x-s,y);ctx.lineTo(x,y+s);ctx.lineTo(x+s,y);ctx.fill();
+}
+function loop(){
+  x.clearRect(0,0,c.width,c.height);
+  H.forEach(h=>{h.y-=h.v;h.a+=0.01;if(h.y<-20)h.y=c.height+20;drawHeart(x,h.x,h.y,h.s,0.3+Math.sin(h.a)*0.2)});
+  requestAnimationFrame(loop);
+}
+loop();
+window.addEventListener('resize',()=>{c.width=innerWidth;c.height=innerHeight});
 </script>
 </body></html>
