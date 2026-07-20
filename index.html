@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>صالحني يا سوسو ❤️</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@700&display=swap');
+  body { 
+    font-family: 'Cairo', sans-serif; 
+    background: #000; 
+    text-align: center; 
+    padding: 30px; 
+    color: white;
+    overflow: hidden;
+  }
+  canvas { position: fixed; top: 0; left: 0; z-index: -1; }
+  
+  #login-box {
+    background: rgba(255,255,255,0.1); backdrop-filter: blur(15px);
+    padding: 40px; border-radius: 25px; width: 80%; max-width: 400px;
+    margin: 100px auto; border: 2px solid #ff4d6d;
+  }
+  #login-box input {
+    padding: 15px; width: 80%; border-radius: 10px; border: none;
+    font-size: 18px; text-align: center; margin: 10px;
+  }
+  #login-box button {
+    background: #ff4d6d; color: white; padding: 15px 30px; 
+    border: none; border-radius: 10px; font-size: 20px; cursor: pointer;
+  }
+
+  #content { display: none; }
+  h1 { font-size: 45px; color: #ff4d6d; text-shadow: 0 0 20px #ff4d6d; animation: glow 2s infinite; }
+  @keyframes glow { 0%,100%{text-shadow:0 0 20px #ff4d6d} 50%{text-shadow:0 0 40px #ff4d6d} }
+  
+  .card { 
+    background: rgba(255,255,255,0.1); backdrop-filter: blur(10px);
+    padding: 20px; border-radius: 20px; margin: 20px auto; width: 85%; max-width: 500px;
+  }
+  
+  .btn { 
+    background: linear-gradient(45deg, #ff4d6d, #ff8fa3); 
+    color: white; padding: 20px 40px; 
+    border-radius: 50px; text-decoration: none; 
+    font-size: 22px; font-weight: bold; display: inline-block; 
+    margin: 20px; box-shadow: 0 0 30px #ff4d6d; animation: bounce 2s infinite;
+  }
+  @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+</style>
+</head>
+<body>
+
+<canvas id="bg"></canvas>
+
+<!-- شاشة الباسورد -->
+<div id="login-box">
+  <h2>🔒 الموقع ده ليكي انتي بس يا سوسو</h2>
+  <p>اكتبي الباسورد عشان تشوفي المفاجأة</p>
+  <input type="password" id="password" placeholder="اكتبي هنا">
+  <br>
+  <button onclick="checkPassword()">ادخلي ❤️</button>
+  <p id="error" style="color:red; display:none;">غلط يا سوسو 😢 الباسورد "بحبك يا سوسو"</p>
+</div>
+
+<!-- محتوى الموقع -->
+<div id="content">
+  <!-- الاغنية -->
+  <audio autoplay loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    <!-- غير اللينك ده بلينك اغنية "ياللي زعلان مني" -->
+  </audio>
+
+  <h1>يا سوسو انا اسف ❤️</h1>
+  <p style="font-size: 22px;">سامع الاغنية؟ دي عشانك</p>
+  <img src="https://i.imgur.com/placeholder.jpg" width="250" style="border-radius:20px; border:4px solid #ff4d6d; box-shadow:0 0 30px #ff4d6d;">
+  
+  <div class="card">
+    <h2>اوعدك يا سوسو</h2>
+    <p>مش هزعلك تاني ابدا</p>
+    <p>وهبقى اطبطب عليكي</p>
+    <p>وانتِ كل دنيتي</p>
+  </div>
+
+  <a href="https://wa.me/201xxxxxxxxx?text=خلاص%20يا%20مجنون%20مسامحاك%20❤️" class="btn">
+    دوسي هنا عشان اصالحك 😘
+  </a>
+</div>
+
+<script>
+// الباسورد
+function checkPassword(){
+  let pass = document.getElementById('password').value;
+  if(pass === "بحبك يا سوسو"){
+    document.getElementById('login-box').style.display = 'none';
+    document.getElementById('content').style.display = 'block';
+    document.querySelector('audio').play();
+  } else {
+    document.getElementById('error').style.display = 'block';
+  }
+}
+
+// باك 3D قلوب
+const canvas = document.getElementById('bg');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+let hearts = [];
+for(let i=0; i<60; i++){
+  hearts.push({x: Math.random()*canvas.width, y: Math.random()*canvas.height, size: Math.random()*15+10, speed: Math.random()*2+1})
+}
+function drawHeart(x,y,size){
+  ctx.fillStyle = 'rgba(255,77,109,0.5)';
+  ctx.beginPath();
+  ctx.moveTo(x, y);
+  ctx.bezierCurveTo(x, y-size/2, x-size, y+size/3, x, y+size);
+  ctx.bezierCurveTo(x+size, y+size/3, x, y-size/2, x, y);
+  ctx.fill();
+}
+function animate(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  hearts.forEach(h=>{ h.y -= h.speed; if(h.y < -20) h.y = canvas.height+20; drawHeart(h.x, h.y, h.size); });
+  requestAnimationFrame(animate);
+}
+animate();
+</script>
+
+</body>
+</html>
