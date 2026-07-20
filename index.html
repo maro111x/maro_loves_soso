@@ -2,65 +2,96 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>لسوسو بس ❤️</title>
+<title>مكانك في قلبي يا سوسو ❤️</title>
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&display=swap');
   body { 
     font-family: 'Cairo', sans-serif; 
-    background: linear-gradient(135deg, #ff4d6d, #ff8fa3); 
+    background: #000; 
     text-align: center; 
-    padding: 30px; 
     color: white;
+    overflow: hidden;
+    margin: 0;
   }
+  canvas { position: fixed; top: 0; left: 0; z-index: -1; }
+  
   #login-box {
-    background: rgba(0,0,0,0.3); 
-    padding: 40px; border-radius: 25px; width: 80%; max-width: 400px;
-    margin: 80px auto;
+    background: rgba(255,0,0,0.2); backdrop-filter: blur(15px);
+    padding: 40px; border-radius: 25px; width: 85%; max-width: 400px;
+    margin: 100px auto; border: 2px solid red;
+    box-shadow: 0 0 30px red;
   }
-  input, button {
-    padding: 15px; width: 80%; border-radius: 10px; border: none;
-    font-size: 18px; margin: 10px; cursor: pointer;
+  input {
+    padding: 15px; width: 80%; border-radius: 10px; border: 2px solid red;
+    font-size: 18px; text-align: center; margin: 10px; background: #000; color: white;
   }
-  button { background: #000; color: white; font-weight: bold; }
+  button {
+    background: linear-gradient(90deg, red, #ff0040, red); 
+    background-size: 200% 100%;
+    animation: rgb 3s linear infinite;
+    color: white; padding: 15px 30px; 
+    border: none; border-radius: 10px; font-size: 20px; cursor: pointer; font-weight: 900;
+  }
+  @keyframes rgb {
+    0%{background-position: 0% 50%}
+    50%{background-position: 100% 50%}
+    100%{background-position: 0% 50%}
+  }
+
   #content { display: none; }
-  h1 { font-size: 40px; text-shadow: 2px 2px 4px #000; }
+  h1 { font-size: 45px; color: red; text-shadow: 0 0 20px red; animation: glow 2s infinite; }
+  @keyframes glow { 0%,100%{text-shadow:0 0 20px red} 50%{text-shadow:0 0 50px red} }
+  
+  .card { 
+    background: rgba(255,0,0,0.15); backdrop-filter: blur(10px);
+    padding: 25px; border-radius: 20px; margin: 20px auto; width: 85%; max-width: 500px;
+    border: 1px solid red;
+  }
+  
   .btn { 
-    background: #000; color: white; padding: 20px 40px; 
+    background: linear-gradient(90deg, red, #ff0040, red); 
+    background-size: 200% 100%;
+    animation: rgb 3s linear infinite;
+    color: white; padding: 20px 40px; 
     border-radius: 50px; text-decoration: none; 
-    font-size: 22px; font-weight: bold; display: inline-block; 
-    margin: 20px;
+    font-size: 22px; font-weight: 900; display: inline-block; 
+    margin: 20px; box-shadow: 0 0 30px red;
   }
 </style>
 </head>
 <body>
 
+<canvas id="bg"></canvas>
+
 <!-- شاشة الباسورد -->
 <div id="login-box">
-  <h2>🔒 ليكي انتي بس يا سوسو</h2>
-  <input type="password" id="password" placeholder="اكتبي الباسورد">
+  <h2>🔒 الموقع ده ليكي بس يا سوسو</h2>
+  <input type="password" id="password" placeholder="اكتبي بحبك يا سوسو">
   <br>
-  <button onclick="checkPassword()">ادخلي</button>
-  <p id="error" style="display:none;">غلط يا سوسو 😢 الباسورد "بحبك يا سوسو"</p>
+  <button onclick="checkPassword()">ادخلي قلبي ❤️</button>
+  <p id="error" style="color:yellow; display:none;">غلط يا سوسو 😢</p>
 </div>
 
 <!-- محتوى الموقع -->
 <div id="content">
-  <h1>ياللي زعلان مني ومخصمني 😔</h1>
-  <p style="font-size: 22px;">حبيب انا اسف والله حقك عليا</p>
+  <!-- حط ملف الاغنية جنب index.html وسميه song.mp3 -->
+  <audio id="myAudio" controls autoplay loop style="margin:20px; width:80%;">
+    <source src="song.mp3" type="audio/mpeg">
+  </audio>
+  <p>لو مشتغلتش دوسي Play 👆</p>
+
+  <h1>مكانك في قلبي ❤️</h1>
+  <p style="font-size: 24px;">ياللي زعلان مني ومخصمني... حبيب انا اسف</p>
   
-  <img src="https://i.imgur.com/8Km9tLL.jpg" width="250" style="border-radius:20px; border:4px solid white;">
-  
-  <div style="background:rgba(0,0,0,0.3); padding:20px; border-radius:20px; margin:20px auto; width:85%;">
-    <h2>اوعدك</h2>
-    <p>مش هزعلك تاني</p>
-    <p>انتِ كل دنيتي يا سوسو</p>
+  <div class="card">
+    <h2>اوعدك يا سوسو</h2>
+    <p>انتِ مكانك في قلبي</p>
+    <p>وعمري ما هزعلك تاني</p>
   </div>
 
-  <!-- زرار الواتساب المضمون -->
-  <a href="https://wa.me/201xxxxxxxxx?text=خلاص%20مسامحاك%20❤️" class="btn" target="_blank">
+  <a href="https://wa.me/201xxxxxxxxx?text=خلاص%20يا%20حبي%20مسامحاك%20❤️" class="btn" target="_blank">
     كلميني واتساب 😘
   </a>
-  
-  <p>ملحوظة: شغلي اغنية "ياللي زعلان مني" من عندك في الخلفية</p>
 </div>
 
 <script>
@@ -69,10 +100,38 @@ function checkPassword(){
   if(pass === "بحبك يا سوسو"){
     document.getElementById('login-box').style.display = 'none';
     document.getElementById('content').style.display = 'block';
+    document.getElementById('myAudio').play().catch(e=>{});
   } else {
     document.getElementById('error').style.display = 'block';
   }
 }
+
+// قلوب 3D خفيفة
+const canvas = document.getElementById('bg');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+let hearts = [];
+for(let i=0; i<50; i++){
+  hearts.push({x: Math.random()*canvas.width, y: Math.random()*canvas.height, size: Math.random()*20+10, speed: Math.random()*2+1})
+}
+function drawHeart(x,y,s){
+  ctx.fillStyle = 'rgba(255,0,0,0.6)';
+  ctx.beginPath();
+  ctx.arc(x-s/3, y-s/3, s/3, 0, Math.PI*2);
+  ctx.arc(x+s/3, y-s/3, s/3, 0, Math.PI*2);
+  ctx.fill();
+  ctx.beginPath();
+  ctx.moveTo(x-s, y);
+  ctx.lineTo(x, y+s);
+  ctx.lineTo(x+s, y);
+  ctx.fill();
+}
+function animate(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  hearts.forEach(h=>{ h.y -= h.speed; if(h.y < -20) h.y = canvas.height+20; drawHeart(h.x, h.y, h.size); });
+  requestAnimationFrame(animate);
+}
+animate();
 </script>
 
 </body>
